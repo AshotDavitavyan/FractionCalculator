@@ -41,24 +41,15 @@ namespace FractionCalculator
 			}
 		}
 
-		public static int GCD(int num1, int num2)
+		public static int LCM(int num1, int num2)
 		{
 			int biggerOne = num1 > num2 ? num1 : num2;
-			while (biggerOne % num1 != 0 && biggerOne % num2 != 0)
+			Console.WriteLine(num1 + " " + num2);
+            while (biggerOne % num1 != 0 || biggerOne % num2 != 0)
 			{
 				biggerOne++;
 			}
 			return biggerOne;
-		}
-
-		public static int LCM(int num1, int num2)
-		{
-			int smallerOne = num1 < num2 ? num1 : num2;
-			while (smallerOne != 0 && num1 % smallerOne != 0 && num2 % smallerOne != 0)
-			{
-				smallerOne--;
-			}
-			return smallerOne;
 		}
 
 		public static Fraction operator +(Fraction first, Fraction second)

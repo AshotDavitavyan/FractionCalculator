@@ -11,10 +11,10 @@
 		<TextBox Name="firstNM" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="" Margin="163,92,551,296"/>
 		<TextBox Name="firstDN" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="" Margin="163,154,551,234"/>
 		<TextBox Name="secondNM" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="" Margin="337,92,377,296"/>
-		<TextBox Name="secondDN" TextWrapping="Wrap" Text="" Margin="337,154,377,234"/>
+		<TextBox Name="secondDN" FontSize="20" TextWrapping="Wrap" Text="" Margin="337,154,377,234"/>
 		<Button Content="Calculate" FontSize="20" Margin="196,280,517,111" Click="Button_Click_1"/>
 		<Label Content="=" HorizontalContentAlignment="Center" Margin="447,127,302,266" FontSize="20"/>
-		<TextBox Name="action" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="" Margin="265,130,479,269"/>
+		<TextBox Name="action" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="" Margin="265,115,479,256"/>
 		<Button Content="Clear" FontSize="20" Margin="457,275,253,116" Click="Button_Click"/>
 		<TextBlock FontSize="20" TextAlignment="Center" Name ="resultNM" TextWrapping="Wrap" Text="" Margin="498,92,204,296"/>
 		<TextBlock Name ="resultDN" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="" Margin="498,155,204,233"/>
