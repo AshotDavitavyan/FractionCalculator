@@ -14,10 +14,10 @@
 		<TextBox Name="secondDN" FontSize="20" TextWrapping="Wrap" Text="" Margin="337,154,377,234"/>
 		<Button Content="Calculate" FontSize="20" Margin="196,280,517,111" Click="Button_Click_1"/>
 		<Label Content="=" HorizontalContentAlignment="Center" Margin="447,127,302,266" FontSize="20"/>
-		<TextBox Name="action" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="" Margin="265,115,479,256"/>
+		<TextBox Name="action" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="" Margin="265,115,479,266" TextChanged="action_TextChanged"/>
 		<Button Content="Clear" FontSize="20" Margin="457,275,253,116" Click="Button_Click"/>
-		<TextBlock FontSize="20" TextAlignment="Center" Name ="resultNM" TextWrapping="Wrap" Text="" Margin="498,92,204,296"/>
-		<TextBlock Name ="resultDN" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="" Margin="498,155,204,233"/>
+		<TextBlock Background="White" FontSize="20" TextAlignment="Center" Name ="resultNM" TextWrapping="Wrap" Text="" Margin="498,92,204,296"/>
+		<TextBlock Background="White" Name ="resultDN" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="" Margin="498,155,204,233"/>
 
 	</Grid>
 </Window>
