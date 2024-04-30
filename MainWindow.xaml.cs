@@ -25,10 +25,17 @@ namespace FractionCalculator
 		{
 			firstNM.Text = string.Empty;
 			firstDN.Text = string.Empty;
+			firstWH.Text = string.Empty;
+
 			secondNM.Text = string.Empty;
 			secondDN.Text = string.Empty;
+			secondWH.Text = string.Empty;
+			
 			resultNM.Text = string.Empty;
 			resultDN.Text = string.Empty;
+			resultWH.Text = string.Empty;
+			
+			action.SelectedIndex = -1;
 		}
 
 		public int ConvertValue(string? value)
@@ -46,37 +53,52 @@ namespace FractionCalculator
 
 		private Fraction CalculateValue(Fraction fraction1, Fraction fraction2)
 		{
+			fraction1.ConvertToImproperFraction();
+			fraction2.ConvertToImproperFraction();
+			Fraction? resultFraction = null;
+
 			switch (action.Text)
 			{
 				case "+":
-					return fraction1 + fraction2;
+					resultFraction = fraction1 + fraction2;
+					break;
 				case "-":
-					return fraction1 - fraction2;
+					resultFraction = fraction1 - fraction2;
+					break;
 				case "*":
-					return fraction1 * fraction2;
+					resultFraction = fraction1 * fraction2;
+					break;
 				case "/":
-					return fraction1 / fraction2;
+					resultFraction = fraction1 / fraction2;
+					break;
 				default:
 					throw new ArgumentException("Invalid action");
 			}
+			resultFraction.ConvertToProperFraction();
+			return resultFraction;
 		}
 
-		private Fraction ConvertToFraction(string numeratorStr, string denominatorStr)
+		private Fraction ConvertToFraction(string numeratorStr, string denominatorStr, string wholePartStr)
 		{
 			int numerator = ConvertValue(numeratorStr);
-			int denominator = ConvertValue(numeratorStr);
-			return new Fraction(numerator, denominator);
+			int denominator = ConvertValue(denominatorStr);
+			if (wholePartStr.Length == 0)
+				return new Fraction(numerator, denominator);
+			int wholePart = ConvertValue(wholePartStr);
+			return new Fraction(numerator, denominator, wholePart);
 		}
 
 		private void Button_Click_1(object sender, RoutedEventArgs e)
 		{
 			try
 			{
-				Fraction fraction1 = ConvertToFraction(firstNM.Text, firstDN.Text);
-				Fraction fraction2 = ConvertToFraction(firstNM.Text, firstDN.Text);
+				Fraction fraction1 = ConvertToFraction(firstNM.Text, firstDN.Text, firstWH.Text);
+				Fraction fraction2 = ConvertToFraction(secondNM.Text, secondDN.Text, secondWH.Text);
 				Fraction answerFraction = CalculateValue(fraction1, fraction2);
+				Console.WriteLine(answerFraction.Numerator + "/" + answerFraction.Denominator);
 				resultNM.Text = answerFraction.Numerator.ToString();
 				resultDN.Text = answerFraction.Denominator.ToString();
+				resultWH.Text = (answerFraction.GetSign() + answerFraction.WholePart.ToString());
 			}
 			catch (ArgumentException ex)
 			{

@@ -8,16 +8,24 @@
         Title="MainWindow" Height="450" Width="800"
 		Background="LightYellow">
 	<Grid>
-		<TextBox Name="firstNM" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="" Margin="163,92,551,296"/>
-		<TextBox Name="firstDN" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="" Margin="163,154,551,234"/>
-		<TextBox Name="secondNM" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="" Margin="337,92,377,296"/>
-		<TextBox Name="secondDN" FontSize="20" TextWrapping="Wrap" Text="" Margin="337,154,377,234"/>
-		<Button Content="Calculate" FontSize="20" Margin="196,280,517,111" Click="Button_Click_1"/>
-		<Label Content="=" HorizontalContentAlignment="Center" Margin="447,127,302,266" FontSize="20"/>
-		<TextBox Name="action" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="" Margin="265,115,479,266" TextChanged="action_TextChanged"/>
-		<Button Content="Clear" FontSize="20" Margin="457,275,253,116" Click="Button_Click"/>
-		<TextBlock Background="White" FontSize="20" TextAlignment="Center" Name ="resultNM" TextWrapping="Wrap" Text="" Margin="498,92,204,296"/>
-		<TextBlock Background="White" Name ="resultDN" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="" Margin="498,155,204,233"/>
+		<TextBox Name="firstNM" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="" Margin="191,92,551,296"/>
+		<TextBox Name="firstDN" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="" Margin="191,154,551,234"/>
+		<TextBox Name="secondNM" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="" Margin="400,92,342,296"/>
+		<TextBox Name="secondDN" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="" Margin="400,154,342,234"/>
+		<Button Content="Calculate" FontSize="20" Margin="163,280,517,100" Click="Button_Click_1"/>
+		<Label Content="=" HorizontalContentAlignment="Center" Margin="469,122,266,270" FontSize="20"/>
+		<ComboBox Name="action" FontSize="20" IsEditable="False" Margin="265,115,479,266">
+			<ComboBoxItem Content="+"/>
+			<ComboBoxItem Content="-"/>
+			<ComboBoxItem Content="*"/>
+			<ComboBoxItem Content="/"/>
+		</ComboBox>
+		<Button Content="Clear" FontSize="20" Margin="472,280,194,100" Click="Button_Click" RenderTransformOrigin="0.514,0.539"/>
+		<TextBlock Background="White" FontSize="20" TextAlignment="Center" Name ="resultNM" TextWrapping="Wrap" Text="" Margin="588,92,163,296"/>
+		<TextBlock Background="White" Name ="resultDN" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="" Margin="588,154,163,234"/>
+		<TextBox x:Name="firstWH" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="" Margin="133,122,609,266"/>
+		<TextBox x:Name="secondWH" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="" Margin="342,122,400,266"/>
+		<TextBlock Background="White" x:Name ="resultWH" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="" Margin="539,122,212,266"/>
 
 	</Grid>
 </Window>

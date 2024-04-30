@@ -10,18 +10,26 @@ namespace FractionCalculator
 	{
 		private int _numerator;
 		private int _denominator;
+		private int? _wholePart;
+
+		public Fraction(int numerator, int denominator, int wholePart)
+		{
+			Numerator = numerator;
+			Denominator = denominator;
+			WholePart = wholePart;
+		}
 
 		public Fraction(int numerator, int denominator)
 		{
-			try
-			{
-				Numerator = numerator;
-				Denominator = denominator;
-			}
-			catch (ArgumentException ex)
-			{
-				throw;
-			}
+			Numerator = numerator;
+			Denominator = denominator;
+			WholePart = null;
+		}
+
+		public int? WholePart 
+		{
+			get { return _wholePart; }
+			set { _wholePart = value; }
 		}
 
 		public int Numerator
@@ -29,6 +37,7 @@ namespace FractionCalculator
 			get { return _numerator; }
 			set { _numerator = value; }
 		}
+
 		public int Denominator
 		{
 			get { return _denominator; }
@@ -44,9 +53,10 @@ namespace FractionCalculator
 		public static int LCM(int num1, int num2)
 		{
 			int biggerOne = num1 > num2 ? num1 : num2;
-			Console.WriteLine(num1 + " " + num2);
-            while (biggerOne % num1 != 0 || biggerOne % num2 != 0)
+            while (true)
 			{
+				if (biggerOne % num1 == 0 && biggerOne % num2 == 0)
+					break;
 				biggerOne++;
 			}
 			return biggerOne;
@@ -88,6 +98,37 @@ namespace FractionCalculator
 			second.Numerator = second.Denominator;
 			second.Denominator = tmp;
 			return first * second;
+		}
+
+		public string GetSign()
+		{
+			int numeratorSign = Numerator < 0 ? -1 : 1;
+			int denominatorSign = Denominator < 0 ? -1 : 1;
+			int wholePartSign = WholePart < 0 ? -1 : 1;
+			int generalSign = numeratorSign * denominatorSign * wholePartSign;
+			return (generalSign == -1 ? "-" : "");
+		}
+
+		public void ConvertToProperFraction()
+		{
+			if (Numerator < Denominator)
+				return;
+			if (WholePart == null)
+				WholePart = 0;
+			
+			while (Numerator > Denominator)
+			{
+				Numerator -= Denominator;
+				WholePart++;
+			}
+		}
+
+		public void ConvertToImproperFraction()
+		{
+			if (WholePart == null)
+				return;
+			Numerator = WholePart.Value * Denominator + Numerator;
+			WholePart = null;
 		}
 
 	}
